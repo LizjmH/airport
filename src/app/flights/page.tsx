@@ -1,3 +1,4 @@
+import { createFlight } from '@/actions/flights'
 import { db } from '@/lib/db'
 
 export default async function flightsPage() {
@@ -8,7 +9,7 @@ export default async function flightsPage() {
         <div className='flex h-screen flex-col items-center justify-center'>
             <h1 className='text-3xl font-bold'>Registro de Vuelos</h1>
             <form
-                action=''
+                action={createFlight}
                 className='flex flex-col gap-2 *:not-[label]:border'
             >
                 <label htmlFor=''>Fecha y Hora de salida</label>
