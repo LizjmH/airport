@@ -34,8 +34,18 @@ CREATE TABLE "Flights" (
     "from_id" INTEGER NOT NULL,
     "to_id" INTEGER NOT NULL,
     "pilot_id" INTEGER NOT NULL,
+    "airplane_id" INTEGER NOT NULL,
 
     CONSTRAINT "Flights_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Airplane" (
+    "id" SERIAL NOT NULL,
+    "code" TEXT NOT NULL,
+    "base_id" INTEGER NOT NULL,
+
+    CONSTRAINT "Airplane_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -60,6 +70,12 @@ ALTER TABLE "Flights" ADD CONSTRAINT "Flights_to_id_fkey" FOREIGN KEY ("to_id") 
 
 -- AddForeignKey
 ALTER TABLE "Flights" ADD CONSTRAINT "Flights_pilot_id_fkey" FOREIGN KEY ("pilot_id") REFERENCES "Pilot"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Flights" ADD CONSTRAINT "Flights_airplane_id_fkey" FOREIGN KEY ("airplane_id") REFERENCES "Airplane"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Airplane" ADD CONSTRAINT "Airplane_base_id_fkey" FOREIGN KEY ("base_id") REFERENCES "Base"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Crew_Flights" ADD CONSTRAINT "Crew_Flights_crew_id_fkey" FOREIGN KEY ("crew_id") REFERENCES "Crew"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

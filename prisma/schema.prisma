@@ -29,11 +29,12 @@ model Crew {
 }
 
 model Base {
-  id           Int       @id @default(autoincrement())
+  id           Int        @id @default(autoincrement())
   name         String
   code         String
-  flights_from Flights[] @relation("from")
-  flights_to   Flights[] @relation("to")
+  flights_from Flights[]  @relation("from")
+  flights_to   Flights[]  @relation("to")
+  airplane     Airplane[]
 }
 
 model Flights {
@@ -43,11 +44,21 @@ model Flights {
   from_id        Int
   to_id          Int
   pilot_id       Int
+  airplane_id    Int
 
   from         Base           @relation("from", fields: [from_id], references: [id])
   to           Base           @relation("to", fields: [to_id], references: [id])
   pilot        Pilot          @relation(fields: [pilot_id], references: [id])
+  aiplane      Airplane       @relation(fields: [airplane_id], references: [id])
   crew_flights Crew_Flights[]
+}
+
+model Airplane {
+  id      Int       @id @default(autoincrement())
+  code    String
+  base_id Int
+  base    Base      @relation(fields: [base_id], references: [id])
+  flights Flights[]
 }
 
 model Crew_Flights {

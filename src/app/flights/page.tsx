@@ -4,6 +4,7 @@ import { db } from '@/lib/db'
 export default async function flightsPage() {
     const pilots = await db.pilot.findMany()
     const bases = await db.base.findMany()
+    const airplanes = await db.airplane.findMany()
 
     return (
         <div className='flex h-screen flex-col items-center justify-center'>
@@ -39,6 +40,14 @@ export default async function flightsPage() {
                     {bases.map(base => (
                         <option key={base.id} value={base.id}>
                             {base.name}
+                        </option>
+                    ))}
+                </select>
+                <label htmlFor=''>Avion</label>
+                <select name='airplane_id' id=''>
+                    {airplanes.map(airplanes => (
+                        <option key={airplanes.id} value={airplanes.id}>
+                            {airplanes.code}
                         </option>
                     ))}
                 </select>
