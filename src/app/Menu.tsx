@@ -17,6 +17,9 @@ export async function Menu() {
             <a className='bg-white' href='/flights'>
                 Vuelos
             </a>
+            <a className='bg-white' href='/anadircrew'>
+                Añadir Tripulantes
+            </a>
             <a className='bg-white' href='/tablas'>
                 Tablas
             </a>

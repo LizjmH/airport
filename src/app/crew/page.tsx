@@ -10,8 +10,7 @@ export default async function crewPage() {
             >
                 <label htmlFor=''>Nombre</label>
                 <input type='text' name='name' required />
-                <label htmlFor=''>Codigo</label>
-                <input type='text' name='code' required />
+
                 <input type='submit' />
             </form>
         </div>
