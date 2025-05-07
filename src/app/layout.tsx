@@ -26,7 +26,7 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} flex antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} flex bg-[url(/airplane.avif)] bg-cover bg-center bg-no-repeat antialiased`}
             >
                 <Menu></Menu>
                 <div className='flex h-screen flex-1 flex-col items-center justify-center'>

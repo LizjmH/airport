@@ -2,11 +2,11 @@ import { createPilot } from '@/actions/pilot'
 
 export default async function pilotPage() {
     return (
-        <div className='flex h-screen flex-col items-center justify-center'>
+        <div className='flex h-screen flex-col items-center justify-center text-black'>
             <h1 className='text-3xl font-bold'>Registro de Pilotos</h1>
             <form
                 action={createPilot}
-                className='flex flex-col gap-2 *:not-[label]:border'
+                className='flex flex-col gap-2 bg-white/50 p-5 *:not-[label]:border'
             >
                 <label htmlFor=''>Nombre</label>
                 <input type='text' name='name' required />
